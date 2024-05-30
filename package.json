@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "aos": "3.0.0-beta.6",
+    "dotenv": "^16.4.5",
     "lucide-react": "^0.379.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
