@@ -1,0 +1,30 @@
+@import url("https://fonts.googleapis.com/css2?family=Kalnia:wght@200;300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100..900;1,100..900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.Kalnia {
+  font-family: "Kalnia", sans-serif;
+}
+
+body {
+  font-family: "Epilogue", sans-serif;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #111111;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #cfd0d5;
+  border-radius: 8px;
+}

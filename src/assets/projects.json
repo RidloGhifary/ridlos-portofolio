@@ -1,0 +1,16 @@
+[
+  {
+    "title": "GymSync",
+    "desc": "GymSync is a fitness-oriented term that could be associated with activities related to synchronizing or coordinating workouts, exercise routines, or fitness tracking. It might involve t integration of technology, apps, or devices to streamline a optimize fitness experiences.",
+    "image": "/images/gymsync.png",
+    "linkDemo": "https://gymsync.vercel.app/",
+    "linkCode": "https://github.com/RidloGhifary/gymsync"
+  },
+  {
+    "title": "Car Rental",
+    "desc": "Car Rental is a service-oriented project that focuses on providing an efficient and user-friendly platform for renting vehicles. The system allows users to search, book, and manage car rentals, offering features such as real-time availability, various vehicle options, and secure payment methods.",
+    "image": "/images/carrental.png",
+    "linkDemo": "https://car-rental-fawn-iota.vercel.app/",
+    "linkCode": "https://github.com/RidloGhifary/car-rental"
+  }
+]
