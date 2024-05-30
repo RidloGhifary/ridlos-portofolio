@@ -64,7 +64,7 @@ const App = () => {
 
           <ul
             data-aos="fade-left"
-            className="absolute right-[50%] top-0 mt-3 flex translate-x-[50%] gap-14 selection:bg-AlmostWhite selection:text-AlmostBlack lg:-right-28 lg:top-[30%] lg:mt-0 lg:translate-x-0 lg:flex-col"
+            className="absolute right-[0%] top-0 mt-3 flex w-full gap-14 selection:bg-AlmostWhite selection:text-AlmostBlack lg:-right-28 lg:top-[30%] lg:mt-0 lg:w-fit lg:translate-x-0 lg:flex-col"
           >
             <li className="text-center hover:underline lg:rotate-90">
               <Link to={"https://medium.com/@ridloghfry"} target="_blank">
@@ -90,7 +90,7 @@ const App = () => {
         <section className="py-40">
           <h1
             data-aos="fade-down"
-            className="Kalnia text-center text-4xl font-bold uppercase selection:bg-AlmostWhite selection:text-AlmostBlack before:stroke-AlmostWhite md:text-7xl"
+            className="Kalnia text-center text-6xl font-bold uppercase selection:bg-AlmostWhite selection:text-AlmostBlack before:stroke-AlmostWhite md:text-8xl"
           >
             project
           </h1>
@@ -103,7 +103,7 @@ const App = () => {
               >
                 <div
                   data-aos="fade-right"
-                  className={`border-AlmostWhite ${index % 2 === 0 ? "order-last" : null} cursor-pointer select-none rounded-lg`}
+                  className={`border-AlmostWhite ${index % 2 === 0 ? "md:order-last" : null} cursor-pointer select-none rounded-lg`}
                 >
                   <img
                     src={import.meta.env.BASE_URL + data.image}
