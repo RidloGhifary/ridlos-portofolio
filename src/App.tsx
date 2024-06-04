@@ -38,7 +38,7 @@ const App = () => {
           <div className="mt-6 grid gap-8 md:grid-cols-2">
             <p
               data-aos="fade-down"
-              className="leading-7 selection:bg-AlmostWhite selection:text-AlmostBlack"
+              className="text-xs leading-7 selection:bg-AlmostWhite selection:text-AlmostBlack sm:text-sm md:text-base"
             >
               This portfolio is my testament, a showcase of my blossoming skills
               and the fruits of my tireless learning. It&apos;s an invitation to
@@ -53,7 +53,7 @@ const App = () => {
             >
               {skillsList?.map((data) => (
                 <span
-                  className="select-none rounded-xl bg-SecondaryColor px-4 py-2 font-semibold text-white"
+                  className="text select-none rounded-xl bg-SecondaryColor px-4 py-2 text-xs font-semibold text-white sm:text-sm md:text-base"
                   key={data}
                 >
                   #{data}
@@ -64,7 +64,7 @@ const App = () => {
 
           <ul
             data-aos="fade-left"
-            className="absolute right-[0%] top-0 mt-3 flex w-full gap-14 selection:bg-AlmostWhite selection:text-AlmostBlack lg:-right-28 lg:top-[30%] lg:mt-0 lg:w-fit lg:translate-x-0 lg:flex-col"
+            className="absolute right-[0%] top-0 mt-3 flex w-full gap-14 selection:bg-AlmostWhite selection:text-AlmostBlack lg:-right-28 lg:bottom-[100px] lg:top-auto lg:mt-0 lg:h-fit lg:w-fit lg:translate-x-0 lg:flex-col"
           >
             <li className="text-center hover:underline lg:rotate-90">
               <Link to={"https://medium.com/@ridloghfry"} target="_blank">
