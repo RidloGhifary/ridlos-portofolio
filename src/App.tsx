@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import projectList from "./assets/projects.json";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import BackgroundPattern from "./components/BackgroundPattern";
 
 const App = () => {
   AOS.init({ once: true, delay: 100 });
@@ -25,6 +26,8 @@ const App = () => {
 
   return (
     <main className="overflow-hidden bg-AlmostBlack text-AlmostWhite">
+      <BackgroundPattern />
+
       <div className="mx-auto max-w-4xl px-4 lg:px-0">
         <section className="relative flex min-h-screen flex-col items-start justify-center pt-20 md:items-start md:justify-end md:py-2 md:pt-0">
           <h1
