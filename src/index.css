@@ -5,6 +5,16 @@
 @tailwind components;
 @tailwind utilities;
 
+/* CSS VARS FOR CURSOR EFFECT */
+html {
+  --cursor-color: #cfd0d5;
+}
+
+html.dark-mode {
+  --cursor-color: #cfd0d5;
+}
+/* CSS VARS FOR CURSOR EFFECT */
+
 .Kalnia {
   font-family: "Kalnia", sans-serif;
 }

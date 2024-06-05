@@ -1,11 +1,12 @@
+import React from "react";
 import { Code, ExternalLink } from "lucide-react";
 import { Link } from "react-router-dom";
 import projectList from "./assets/projects.json";
+import BackgroundPattern from "./components/BackgroundPattern";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import BackgroundPattern from "./components/BackgroundPattern";
 
-const App = () => {
+const App: React.FC = () => {
   AOS.init({ once: true, delay: 100 });
 
   const skillsList = [
