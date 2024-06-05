@@ -185,7 +185,7 @@ const App: React.FC = () => {
       </div>
 
       <footer className="pb-10 text-center">
-        <p>copyright &copy; {new Date().getFullYear()} All Rights Reserved.</p>
+        <p>copyright &copy; {new Date().getFullYear()} All Rights Reserved</p>
       </footer>
     </main>
   );
