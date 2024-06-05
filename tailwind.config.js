@@ -11,6 +11,15 @@ export default {
         AlmostWhite: "#cfd0d5",
         SecondaryColor: "#e1a142",
       },
+      keyframes: {
+        shine: {
+          "0%": { backgroundPosition: "0" },
+          "50%, 100%": { backgroundPosition: "600px" },
+        },
+      },
+      animation: {
+        shine: "shine 3s linear infinite",
+      },
     },
     patterns: {
       opacities: {

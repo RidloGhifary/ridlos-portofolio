@@ -94,10 +94,11 @@ const App: React.FC = () => {
         <section className="py-40">
           <h1
             data-aos="fade-down"
-            className="Kalnia text-center text-6xl font-bold uppercase selection:bg-AlmostWhite selection:text-AlmostBlack before:stroke-AlmostWhite md:text-8xl"
+            className="Kalnia custom-h1 text-center text-6xl font-bold uppercase selection:bg-AlmostWhite selection:text-AlmostBlack before:stroke-AlmostWhite md:text-8xl"
           >
             project
           </h1>
+
           <div className="space-y-6">
             {projectList?.map((data, index: number) => (
               <div

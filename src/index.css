@@ -23,6 +23,30 @@ body {
   font-family: "Epilogue", sans-serif;
 }
 
+.custom-h1 {
+  background: linear-gradient(
+    to right,
+    hsl(0, 0%, 30%) 0,
+    hsl(0, 0%, 100%) 10%,
+    hsl(0, 0%, 30%) 20%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 3s infinite linear;
+}
+
+@keyframes shine {
+  0% {
+    background-position: 0;
+  }
+  60% {
+    background-position: 600px;
+  }
+  100% {
+    background-position: 600px;
+  }
+}
+
 /* width */
 ::-webkit-scrollbar {
   width: 4px;
