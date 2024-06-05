@@ -1,12 +1,18 @@
-import React from "react";
+import React, { useRef } from "react";
 import { Code, ExternalLink } from "lucide-react";
 import { Link } from "react-router-dom";
 import projectList from "./assets/projects.json";
 import BackgroundPattern from "./components/BackgroundPattern";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const App: React.FC = () => {
+  const h1Ref = useRef<HTMLHeadingElement>(null);
   AOS.init({ once: true, delay: 100 });
 
   const skillsList = [
@@ -25,6 +31,32 @@ const App: React.FC = () => {
     "VS Code",
   ];
 
+  useGSAP(() => {
+    gsap.from(".line-2", {
+      scrollTrigger: {
+        trigger: ".orange",
+        scrub: true,
+
+        pin: true,
+        start: "top top",
+        end: "+=200%",
+      },
+      scaleX: 0,
+      transformOrigin: "left center",
+      ease: "none",
+    });
+
+    gsap.timeline({
+      scrollTrigger: {
+        trigger: ".purple",
+        scrub: true,
+        pin: true,
+        start: "top top",
+        end: "+=100%",
+      },
+    });
+  });
+
   return (
     <main className="overflow-hidden bg-AlmostBlack text-AlmostWhite">
       <BackgroundPattern />
@@ -32,12 +64,14 @@ const App: React.FC = () => {
       <div className="mx-auto max-w-4xl px-4 lg:px-0">
         <section className="relative flex min-h-screen flex-col items-start justify-center pt-20 md:items-start md:justify-end md:py-2 md:pt-0">
           <h1
+            id="scramble"
             data-aos="fade-down"
+            ref={h1Ref}
             className="Kalnia text-7xl font-bold selection:bg-AlmostWhite selection:text-AlmostBlack md:text-9xl"
           >
-            H`i
+            <span className="line1">H`i</span>
             <br />
-            I`M Ridlo
+            <span className="line2">I`M Ridlo</span>
           </h1>
           <div className="mt-6 grid gap-8 md:grid-cols-2">
             <p
@@ -90,6 +124,10 @@ const App: React.FC = () => {
             </li>
           </ul>
         </section>
+
+        <div className="orange">
+          <div className="line line-2" />
+        </div>
 
         <section className="py-40">
           <h1
