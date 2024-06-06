@@ -5,6 +5,10 @@ import "./index.css";
 
 import { BrowserRouter } from "react-router-dom";
 import AnimatedCursor from "react-animated-cursor";
+import AOS from "aos";
+import "aos/dist/aos.css";
+
+AOS.init({ once: true, delay: 100 });
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
