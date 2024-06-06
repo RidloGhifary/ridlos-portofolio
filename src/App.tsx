@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Code, ExternalLink } from "lucide-react";
 import { Link } from "react-router-dom";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import fscreen from "fscreen";
 
 import projectList from "./assets/projects.json";
 import BackgroundPattern from "./components/BackgroundPattern";
@@ -14,6 +15,10 @@ import Links from "./components/Links";
 gsap.registerPlugin(ScrollTrigger);
 
 const App: React.FC = () => {
+  const [isFullScreen, setIsFullScreen] = useState<boolean>(false);
+  console.log("🚀 ~ isFullScreen:", isFullScreen);
+  const contentRef = useRef<HTMLDivElement>(null);
+
   useGSAP(() => {
     // SCROLL ANIMATIION LINE
     gsap.from(".line-2", {
@@ -40,11 +45,76 @@ const App: React.FC = () => {
       },
     });
   });
+
+  useEffect(() => {
+    if (fscreen.fullscreenEnabled) {
+      fscreen.addEventListener("fullscreenchange", handlerFullScreen, false);
+    }
+
+    return () => {
+      if (fscreen.fullscreenEnabled) {
+        fscreen.removeEventListener(
+          "fullscreenchange",
+          handlerFullScreen,
+          false,
+        );
+      }
+    };
+  }, []);
+
+  useEffect(() => {
+    const handleKeyPress = (event: KeyboardEvent) => {
+      if (event.ctrlKey && event.key === " ") {
+        toggleFullscreen();
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyPress);
+
+    return () => {
+      document.removeEventListener("keydown", handleKeyPress);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (fscreen.fullscreenEnabled) {
+      fscreen.addEventListener("fullscreenchange", handlerFullScreen, false);
+    }
+
+    return () => {
+      if (fscreen.fullscreenEnabled) {
+        fscreen.removeEventListener(
+          "fullscreenchange",
+          handlerFullScreen,
+          false,
+        );
+      }
+    };
+  }, []);
+
+  function handlerFullScreen() {
+    if (fscreen.fullscreenElement !== null) {
+      setIsFullScreen(true);
+    } else {
+      setIsFullScreen(false);
+    }
+  }
+
+  const toggleFullscreen = () => {
+    if (fscreen.fullscreenElement) {
+      fscreen.exitFullscreen();
+    } else {
+      if (contentRef.current) {
+        fscreen.requestFullscreen(contentRef.current);
+      }
+    }
+  };
+
   return (
     <main className="overflow-hidden bg-AlmostBlack text-AlmostWhite">
       <BackgroundPattern />
 
-      <div className="mx-auto max-w-4xl px-4 lg:px-0">
+      <div className="mx-auto max-w-4xl px-4 lg:px-0" ref={contentRef}>
         <section className="relative flex min-h-screen flex-col items-start justify-center pt-20 md:items-start md:justify-end md:py-2 md:pt-0">
           <h1
             id="scramble"
