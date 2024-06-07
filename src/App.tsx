@@ -12,6 +12,7 @@ import BackgroundPattern from "./components/BackgroundPattern";
 import NameTypeAnimation from "./components/NameTypeAnimation";
 import SkillList from "./components/SkillList";
 import Links from "./components/Links";
+import Toast from "./components/Toast";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -132,6 +133,14 @@ const App: React.FC = () => {
   }, [i18n.language]);
   // TODO FINISH LINE HANDLE SWITCH LANGUAGE
 
+  useEffect(() => {
+    Toast.fire({
+      icon: "info",
+      titleText: "Change language",
+      html: "Press down <b><i>ctrl+t</i></b> for changing the language",
+    });
+  }, []);
+
   return (
     <main className="overflow-hidden bg-AlmostBlack text-AlmostWhite">
       <BackgroundPattern />
@@ -166,7 +175,7 @@ const App: React.FC = () => {
           <div className="line line-2" />
         </div>
 
-        <section className="py-40">
+        <section className="py-40" id="main-element">
           <h1
             data-aos="fade-down"
             className="Kalnia custom-h1 text-center text-6xl font-bold uppercase selection:bg-AlmostBlack selection:text-AlmostWhite before:stroke-AlmostWhite md:text-8xl"
