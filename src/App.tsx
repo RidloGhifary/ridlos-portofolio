@@ -204,7 +204,7 @@ const App: React.FC = () => {
                   <h2 className="Kalnia text-5xl font-semibold text-SecondaryColor selection:bg-SecondaryColor selection:text-AlmostBlack">
                     {data.title}
                   </h2>
-                  <p className="font-light selection:bg-AlmostWhite selection:text-AlmostBlack">
+                  <p className="font-light capitalize selection:bg-AlmostWhite selection:text-AlmostBlack">
                     {t(
                       `${data.title === "GymSync" ? "gymSyncDescription" : "carRentalDescription"}`,
                     )}
@@ -212,14 +212,14 @@ const App: React.FC = () => {
                   <div className="flex select-none items-center justify-center gap-5">
                     <Link
                       to={data.linkDemo}
-                      className="flex cursor-pointer items-center justify-center gap-2 rounded-xl bg-AlmostWhite/5 px-4 py-2 transition hover:bg-AlmostWhite/20"
+                      className="flex cursor-pointer items-center justify-center gap-2 rounded-xl bg-AlmostWhite/5 px-4 py-2 capitalize transition hover:bg-AlmostWhite/20"
                     >
                       <ExternalLink />
                       {t("demo")}
                     </Link>
                     <Link
                       to={data.linkCode}
-                      className="flex cursor-pointer items-center justify-center gap-2 rounded-xl bg-AlmostWhite/5 px-4 py-2 transition hover:bg-AlmostWhite/20"
+                      className="flex cursor-pointer items-center justify-center gap-2 rounded-xl bg-AlmostWhite/5 px-4 py-2 capitalize transition hover:bg-AlmostWhite/20"
                     >
                       <Code />
                       {t("code")}
