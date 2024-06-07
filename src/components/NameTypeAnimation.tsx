@@ -5,7 +5,7 @@ const NameTypeAnimation: React.FC = () => {
   return (
     <TypeAnimation
       sequence={["Ridlo", 1000, "Achmad", 1000, "Ghifary", 1000]}
-      speed={70}
+      speed={90}
       repeat={Infinity}
     />
   );

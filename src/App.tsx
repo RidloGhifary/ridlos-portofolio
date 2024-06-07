@@ -5,6 +5,7 @@ import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import fscreen from "fscreen";
+import { useTranslation } from "react-i18next";
 
 import projectList from "./assets/projects.json";
 import BackgroundPattern from "./components/BackgroundPattern";
@@ -16,6 +17,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const App: React.FC = () => {
   const [isFullScreen, setIsFullScreen] = useState<boolean>(false);
+  const { t, i18n } = useTranslation();
   console.log("🚀 ~ isFullScreen:", isFullScreen);
   const contentRef = useRef<HTMLDivElement>(null);
 
@@ -46,6 +48,7 @@ const App: React.FC = () => {
     });
   });
 
+  // TODO HANDLE FULLSCREEN FUNCTIONALITY
   useEffect(() => {
     if (fscreen.fullscreenEnabled) {
       fscreen.addEventListener("fullscreenchange", handlerFullScreen, false);
@@ -109,6 +112,25 @@ const App: React.FC = () => {
       }
     }
   };
+  // TODO FINISH LINE HANDLE FULLSCREEN FUNCTIONALITY
+
+  // TODO HANDLE SWITCH LANGUAGE
+  const handleKeyDown = (event: KeyboardEvent) => {
+    if (event.ctrlKey && event.key === "t") {
+      event.preventDefault();
+      const nextLanguage = i18n.language === "en" ? "id" : "en";
+      i18n.changeLanguage(nextLanguage);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [i18n.language]);
+  // TODO FINISH LINE HANDLE SWITCH LANGUAGE
 
   return (
     <main className="overflow-hidden bg-AlmostBlack text-AlmostWhite">
@@ -122,7 +144,7 @@ const App: React.FC = () => {
             data-aos-delay="100"
             className="Kalnia text-7xl font-bold selection:bg-AlmostWhite selection:text-AlmostBlack md:text-9xl"
           >
-            <span className="text-6xl">Hi I`M</span>
+            <span className="text-6xl">{t("greeting")}</span>
             <br />
             <NameTypeAnimation />
           </h1>
@@ -132,11 +154,7 @@ const App: React.FC = () => {
               data-aos-delay="200"
               className="text-xs leading-7 selection:bg-AlmostWhite selection:text-AlmostBlack sm:text-sm md:text-base"
             >
-              This portfolio is my testament, a showcase of my blossoming skills
-              and the fruits of my tireless learning. It's an invitation to
-              embark on a collaborative journey, where together we can transform
-              digital dreams into tangible realities. So, come, explore, and
-              let's craft something extraordinary, line by line, pixel by pixel.
+              {t("bio")}
             </p>
             <SkillList />
           </div>
@@ -153,7 +171,7 @@ const App: React.FC = () => {
             data-aos="fade-down"
             className="Kalnia custom-h1 text-center text-6xl font-bold uppercase selection:bg-AlmostBlack selection:text-AlmostWhite before:stroke-AlmostWhite md:text-8xl"
           >
-            project
+            {t("project")}
           </h1>
 
           <div className="space-y-6">
@@ -178,7 +196,9 @@ const App: React.FC = () => {
                     {data.title}
                   </h2>
                   <p className="font-light selection:bg-AlmostWhite selection:text-AlmostBlack">
-                    {data.desc}
+                    {t(
+                      `${data.title === "GymSync" ? "gymSyncDescription" : "carRentalDescription"}`,
+                    )}
                   </p>
                   <div className="flex select-none items-center justify-center gap-5">
                     <Link
@@ -186,14 +206,14 @@ const App: React.FC = () => {
                       className="flex cursor-pointer items-center justify-center gap-2 rounded-xl bg-AlmostWhite/5 px-4 py-2 transition hover:bg-AlmostWhite/20"
                     >
                       <ExternalLink />
-                      Demo
+                      {t("demo")}
                     </Link>
                     <Link
                       to={data.linkCode}
                       className="flex cursor-pointer items-center justify-center gap-2 rounded-xl bg-AlmostWhite/5 px-4 py-2 transition hover:bg-AlmostWhite/20"
                     >
                       <Code />
-                      Code
+                      {t("code")}
                     </Link>
                   </div>
                 </div>

@@ -7,6 +7,7 @@ import { BrowserRouter } from "react-router-dom";
 import AnimatedCursor from "react-animated-cursor";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import "./i18n/i18n";
 
 AOS.init({ once: true, delay: 100 });
 
