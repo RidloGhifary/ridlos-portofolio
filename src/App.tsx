@@ -18,6 +18,7 @@ gsap.registerPlugin(ScrollTrigger);
 const App: React.FC = () => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [isFullScreen, setIsFullScreen] = useState<boolean>(false);
+  console.log("🚀 ~ isFullScreen:", isFullScreen);
   const contentRef = useRef<HTMLDivElement>(null);
   const { t, i18n } = useTranslation();
 
