@@ -29,7 +29,6 @@ export default {
       },
       animation: {
         shine: "shine 3s linear infinite",
-        animation: "bounce 20s infinite",
       },
     },
     patterns: {
