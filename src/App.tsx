@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect } from "react";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -16,7 +16,6 @@ import Projects from "./components/Projects";
 gsap.registerPlugin(ScrollTrigger);
 
 const App: React.FC = () => {
-  const contentRef = useRef<HTMLDivElement>(null);
   const { t, i18n } = useTranslation();
 
   useGSAP(() => {
@@ -60,10 +59,7 @@ const App: React.FC = () => {
       <BackgroundPattern />
       <ChangeLanguage handleChangeLanguage={handleChangeLanguage} />
 
-      <div
-        className="mx-auto max-w-4xl px-4 lg:px-0 2xl:max-w-6xl"
-        ref={contentRef}
-      >
+      <div className="mx-auto max-w-4xl px-4 lg:px-0 2xl:max-w-6xl">
         <section className="relative flex min-h-screen select-none flex-col items-start justify-center pt-20 md:items-start md:justify-end md:py-2 md:pt-0">
           <h1
             id="scramble"
