@@ -1,9 +1,9 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import fscreen from "fscreen";
 import { useTranslation } from "react-i18next";
+import axios from "axios";
 
 import BackgroundPattern from "./components/BackgroundPattern";
 import NameTypeAnimation from "./components/NameTypeAnimation";
@@ -16,9 +16,6 @@ import Projects from "./components/Projects";
 gsap.registerPlugin(ScrollTrigger);
 
 const App: React.FC = () => {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [isFullScreen, setIsFullScreen] = useState<boolean>(false);
-  console.log("🚀 ~ isFullScreen:", isFullScreen);
   const contentRef = useRef<HTMLDivElement>(null);
   const { t, i18n } = useTranslation();
 
@@ -38,77 +35,25 @@ const App: React.FC = () => {
     });
   });
 
-  // TODO HANDLE FULLSCREEN FUNCTIONALITY
-  useEffect(() => {
-    if (fscreen.fullscreenEnabled) {
-      fscreen.addEventListener("fullscreenchange", handlerFullScreen, false);
-    }
-
-    return () => {
-      if (fscreen.fullscreenEnabled) {
-        fscreen.removeEventListener(
-          "fullscreenchange",
-          handlerFullScreen,
-          false,
-        );
-      }
-    };
-  }, []);
-
-  useEffect(() => {
-    const handleKeyPress = (event: KeyboardEvent) => {
-      if (event.ctrlKey && event.key === " ") {
-        toggleFullscreen();
-      }
-    };
-
-    document.addEventListener("keydown", handleKeyPress);
-
-    return () => {
-      document.removeEventListener("keydown", handleKeyPress);
-    };
-  }, []);
-
-  useEffect(() => {
-    if (fscreen.fullscreenEnabled) {
-      fscreen.addEventListener("fullscreenchange", handlerFullScreen, false);
-    }
-
-    return () => {
-      if (fscreen.fullscreenEnabled) {
-        fscreen.removeEventListener(
-          "fullscreenchange",
-          handlerFullScreen,
-          false,
-        );
-      }
-    };
-  }, []);
-
-  function handlerFullScreen() {
-    if (fscreen.fullscreenElement !== null) {
-      setIsFullScreen(true);
-    } else {
-      setIsFullScreen(false);
-    }
-  }
-
-  const toggleFullscreen = () => {
-    if (fscreen.fullscreenElement) {
-      fscreen.exitFullscreen();
-    } else {
-      if (contentRef.current) {
-        fscreen.requestFullscreen(contentRef.current);
-      }
-    }
-  };
-  // TODO FINISH LINE HANDLE FULLSCREEN FUNCTIONALITY
-
   // TODO HANDLE SWITCH LANGUAGE
   const handleChangeLanguage = () => {
     const nextLanguage = i18n.language === "en" ? "id" : "en";
     i18n.changeLanguage(nextLanguage);
   };
+
+  useEffect(() => {
+    const trackVisitor = async () => {
+      try {
+        await axios.get(
+          "https://portfoliobackend-mv27ok25f-ridloghifarys-projects.vercel.app/api/track",
+        );
+      } catch (error) {
+        console.error("Error tracking visitor", error);
+      }
+    };
+
+    trackVisitor();
+  }, []);
 
   return (
     <main className="overflow-hidden bg-AlmostBlack text-AlmostWhite">
