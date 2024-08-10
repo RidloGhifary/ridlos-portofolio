@@ -7,7 +7,7 @@ const ChangeLanguage: React.FC<{
   const [showChangeLanguage, setShowChangeLanguage] =
     React.useState<boolean>(false);
   const [clickCount, setClickCount] = React.useState<number>(0);
-  const timeoutRef = React.useRef<number | null>(null);
+  const timeoutRef = React.useRef<number | null | any>(null);
 
   React.useEffect(() => {
     const handleBodyClick = () => {
