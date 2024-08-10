@@ -26,7 +26,7 @@ const App: React.FC = () => {
 
         pin: true,
         start: "top top",
-        end: "+=150%",
+        end: "+=100%",
       },
       scaleX: 0,
       transformOrigin: "left center",

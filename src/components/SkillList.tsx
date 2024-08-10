@@ -40,6 +40,11 @@ const SkillList: React.FC = () => {
           />
         </span>
       ))}
+      <img
+        src="https://skillicons.dev/icons?i=html"
+        height="50"
+        alt="html5 logo"
+      />
     </div>
   );
 };

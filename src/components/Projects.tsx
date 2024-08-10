@@ -1,10 +1,13 @@
 import React from "react";
 import projectList from "../assets/projects.json";
-import { Link } from "react-router-dom";
 import { Code, ExternalLink } from "lucide-react";
+import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const Projects: React.FC<{ t: any }> = ({ t }) => {
+  const navigate = useNavigate();
+
   return (
     <section className="py-40" id="main-element">
       <h1
@@ -40,20 +43,28 @@ const Projects: React.FC<{ t: any }> = ({ t }) => {
                 )}
               </p>
               <div className="flex select-none items-center justify-center gap-5">
-                <Link
-                  to={data.linkDemo}
+                <button
+                  onClick={() =>
+                    data.linkDemo
+                      ? navigate(data.linkDemo)
+                      : toast.error("Demo not available")
+                  }
                   className="flex cursor-pointer items-center justify-center gap-2 rounded-xl bg-AlmostWhite/5 px-4 py-2 capitalize transition hover:bg-AlmostWhite/20"
                 >
                   <ExternalLink />
                   {t("demo")}
-                </Link>
-                <Link
-                  to={data.linkCode}
+                </button>
+                <button
+                  onClick={() =>
+                    data.linkCode
+                      ? navigate(data.linkCode)
+                      : toast.error("Demo not available")
+                  }
                   className="flex cursor-pointer items-center justify-center gap-2 rounded-xl bg-AlmostWhite/5 px-4 py-2 capitalize transition hover:bg-AlmostWhite/20"
                 >
                   <Code />
-                  {t("code")}
-                </Link>
+                  {t("demo")}
+                </button>
               </div>
             </div>
           </div>

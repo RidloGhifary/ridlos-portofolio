@@ -12,5 +12,19 @@
     "image": "/images/carrental.png",
     "linkDemo": "https://car-rental-fawn-iota.vercel.app/",
     "linkCode": "https://github.com/RidloGhifary/car-rental"
+  },
+  {
+    "title": "Airbnb Clone",
+    "desc": "Airbnb Clone is a web application that aims to clone the basic features of Airbnb, such as browsing available properties, booking a property, and managing reservations. It is built using React with hooks and context API, and it uses the Airbnb API for accessing property data.",
+    "image": "/images/airbnb_clone.png",
+    "linkDemo": "",
+    "linkCode": "https://github.com/RidloGhifary/airbnb-clone"
+  },
+  {
+    "title": "Spotify Clone",
+    "desc": "Spotify Clone is a web application that aims to clone the basic features of Spotify, such as playing music, creating playlists, adding songs to favorites, and more. It is built using React with hooks and context API, and it uses the Spotify Web API for accessing music data.",
+    "image": "/images/spotify_clone.png",
+    "linkDemo": "https://spitofy-delta.vercel.app/",
+    "linkCode": "https://github.com/RidloGhifary/spotify-clone"
   }
 ]
