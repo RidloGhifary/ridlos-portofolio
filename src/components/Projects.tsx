@@ -47,7 +47,7 @@ const Projects: React.FC<{ t: any }> = ({ t }) => {
                   onClick={() =>
                     data.linkDemo
                       ? navigate(data.linkDemo)
-                      : toast.error("Demo not available")
+                      : toast.error("Demo is not available")
                   }
                   className="flex cursor-pointer items-center justify-center gap-2 rounded-xl bg-AlmostWhite/5 px-4 py-2 capitalize transition hover:bg-AlmostWhite/20"
                 >
@@ -58,12 +58,12 @@ const Projects: React.FC<{ t: any }> = ({ t }) => {
                   onClick={() =>
                     data.linkCode
                       ? navigate(data.linkCode)
-                      : toast.error("Demo not available")
+                      : toast.error("Code is not available")
                   }
                   className="flex cursor-pointer items-center justify-center gap-2 rounded-xl bg-AlmostWhite/5 px-4 py-2 capitalize transition hover:bg-AlmostWhite/20"
                 >
                   <Code />
-                  {t("demo")}
+                  {t("code")}
                 </button>
               </div>
             </div>
