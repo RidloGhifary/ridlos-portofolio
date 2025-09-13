@@ -10,8 +10,8 @@
     "title": "Car Rental",
     "desc": "Car Rental is a service-oriented project that focuses on providing an efficient and user-friendly platform for renting vehicles. The system allows users to search, book, and manage car rentals, offering features such as real-time availability, various vehicle options, and secure payment methods.",
     "image": "/images/carrental.png",
-    "linkDemo": "https://car-rental-fawn-iota.vercel.app/",
-    "linkCode": "https://github.com/RidloGhifary/car-rental"
+    "linkDemo": "https://landingcarental.netlify.app/",
+    "linkCode": "https://github.com/RidloGhifary/code-challenge-front-end"
   },
   {
     "title": "Airbnb Clone",
