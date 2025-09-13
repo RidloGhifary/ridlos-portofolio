@@ -40,7 +40,7 @@ jobs:
             if [ ! -d "${{ secrets.DEV_VPS_WORKDIR }}/.git" ]; then
                 echo "Repo not found. Cloning fresh..."
                 mkdir -p $(dirname "${{ secrets.DEV_VPS_WORKDIR }}")
-                git clone git@github.com:<your-username>/<your-repo>.git "${{ secrets.DEV_VPS_WORKDIR }}"
+                git clone ${{ secrets.DEV_GITHUB_REPOSITORY }} "${{ secrets.DEV_VPS_WORKDIR }}"
             fi
 
             cd "${{ secrets.DEV_VPS_WORKDIR }}"
