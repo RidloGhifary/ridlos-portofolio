@@ -1,0 +1,18 @@
+version: "1.0.0"
+
+services:
+  portfolio-v1:
+    container_name: portfolio-v1
+    restart: always
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - portfolio-v1:/app/data
+    command: >
+      /bin/sh -c "pnpm run preview"
+    ports:
+      - "4173:4173"
+
+volumes:
+  portfolio-v1:
