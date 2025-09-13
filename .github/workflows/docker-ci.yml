@@ -34,15 +34,22 @@ jobs:
           key: ${{ secrets.SERVER_SSH_KEY }}
           port: 22
           script: |
-            if [ ! -d "${{ secrets.DEV_VPS_WORKDIR }}" ]; then
-                mkdir -p ${{ secrets.DEV_VPS_WORKDIR }}
-                cd $(dirname ${{ secrets.DEV_VPS_WORKDIR }})
-                git clone ${{ secrets.DEV_GITHUB_REPOSITORY }} $(basename ${{ secrets.DEV_VPS_WORKDIR }})
-            else
-                cd ${{ secrets.DEV_VPS_WORKDIR }}
-                git pull origin main
+            set -e
+
+            # if repo doesn't exist, clone it
+            if [ ! -d "${{ secrets.DEV_VPS_WORKDIR }}/.git" ]; then
+                echo "Repo not found. Cloning fresh..."
+                mkdir -p $(dirname "${{ secrets.DEV_VPS_WORKDIR }}")
+                git clone git@github.com:<your-username>/<your-repo>.git "${{ secrets.DEV_VPS_WORKDIR }}"
             fi
 
+            cd "${{ secrets.DEV_VPS_WORKDIR }}"
+
+            # update code
+            git fetch origin main
+            git reset --hard origin/main
+
+            # restart app
             docker compose down
             docker compose up -d --build
             docker ps
