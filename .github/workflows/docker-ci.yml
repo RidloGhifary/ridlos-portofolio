@@ -37,7 +37,7 @@ jobs:
             if [ ! -d "${{ secrets.DEV_VPS_WORKDIR }}" ]; then
                 mkdir -p ${{ secrets.DEV_VPS_WORKDIR }}
                 cd $(dirname ${{ secrets.DEV_VPS_WORKDIR }})
-                git clone git@github.com:RidloGhifary/ridlos-portofolio.git $(basename ${{ secrets.DEV_VPS_WORKDIR }})
+                git clone ${{ secrets.DEV_GITHUB_REPOSITORY }} $(basename ${{ secrets.DEV_VPS_WORKDIR }})
             else
                 cd ${{ secrets.DEV_VPS_WORKDIR }}
                 git pull origin main
