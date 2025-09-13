@@ -1,5 +1,3 @@
-version: "1.0.0"
-
 services:
   portfolio-v1:
     container_name: portfolio-v1
