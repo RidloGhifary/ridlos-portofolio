@@ -8,6 +8,10 @@ RUN npm install -g pnpm
 RUN pnpm install
 
 COPY . .
+
+# copy env file
+COPY .env.production ./.env.production
+
 RUN pnpm run build
 
 #Production Stage
@@ -16,7 +20,9 @@ WORKDIR /app
 
 RUN npm install -g pnpm
 
-COPY --from=build-stage /app ./
+COPY --from=build-stage /app/dist ./dist
+COPY --from=build-stage /app/package.json ./package.json
+
 EXPOSE 4173
 
 CMD ["pnpm", "run", "preview"]
