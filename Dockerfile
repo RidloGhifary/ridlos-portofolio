@@ -22,6 +22,7 @@ WORKDIR /app
 RUN npm install -g pnpm
 
 COPY --from=build-stage /app/dist ./dist
+COPY --from=build-stage /app/package.json ./package.json
 
 EXPOSE 4173
 
