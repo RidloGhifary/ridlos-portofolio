@@ -1,4 +1,4 @@
-#Build Stage 
+# Build Stage 
 
 FROM node:18-alpine AS build-stage
 WORKDIR /app
@@ -9,19 +9,19 @@ RUN pnpm install
 
 COPY . .
 
-# copy env file
-COPY .env.production ./.env.production
+# Accept build arg
+ARG VITE_BASE_URL
+ENV VITE_BASE_URL=$VITE_BASE_URL
 
 RUN pnpm run build
 
-#Production Stage
+# Production Stage
 FROM node:18-alpine AS production-stage
 WORKDIR /app
 
 RUN npm install -g pnpm
 
 COPY --from=build-stage /app/dist ./dist
-COPY --from=build-stage /app/package.json ./package.json
 
 EXPOSE 4173
 

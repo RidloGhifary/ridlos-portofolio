@@ -29,6 +29,8 @@ jobs:
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/portfolio-v1:latest
           file: ./Dockerfile
+          build-args: |
+            VITE_BASE_URL=${{ secrets.VITE_BASE_URL }}
 
   deploy:
     needs: build-and-push
@@ -43,6 +45,8 @@ jobs:
           key: ${{ secrets.SERVER_SSH_KEY }}
           script: |
             docker pull ${{ secrets.DOCKER_USERNAME }}/portfolio-v1:latest
+
             docker stop portfolio-v1 || true
             docker rm portfolio-v1 || true
+
             docker run -d --name portfolio-v1 -p 4173:4173 ${{ secrets.DOCKER_USERNAME }}/portfolio-v1:latest
