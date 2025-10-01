@@ -19,11 +19,10 @@ RUN pnpm run build
 FROM node:18-alpine AS production-stage
 WORKDIR /app
 
-RUN npm install -g pnpm
+# use a tiny static server
+RUN npm install -g serve
 
 COPY --from=build-stage /app/dist ./dist
-COPY --from=build-stage /app/package.json ./package.json
 
 EXPOSE 4173
-
-CMD ["pnpm", "run", "preview"]
+CMD ["serve", "-s", "dist", "-l", "4173"]
