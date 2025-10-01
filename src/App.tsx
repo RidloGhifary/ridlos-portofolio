@@ -1,9 +1,8 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useTranslation } from "react-i18next";
-import axios from "axios";
 
 import BackgroundPattern from "./components/BackgroundPattern";
 import NameTypeAnimation from "./components/NameTypeAnimation";
@@ -39,20 +38,6 @@ const App: React.FC = () => {
     const nextLanguage = i18n.language === "en" ? "id" : "en";
     i18n.changeLanguage(nextLanguage);
   };
-
-  useEffect(() => {
-    const trackVisitor = async () => {
-      try {
-        await axios.get(
-          "https://portfoliobackend-mv27ok25f-ridloghifarys-projects.vercel.app/api/track",
-        );
-      } catch (error) {
-        console.error("Error tracking visitor", error);
-      }
-    };
-
-    trackVisitor();
-  }, []);
 
   return (
     <main className="overflow-hidden bg-AlmostBlack text-AlmostWhite">

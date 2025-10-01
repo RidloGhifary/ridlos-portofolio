@@ -25,7 +25,7 @@ const Projects: React.FC<{ t: any }> = ({ t }) => {
               className={`border-AlmostWhite ${index % 2 === 0 ? "md:order-last" : null} cursor-pointer select-none rounded-lg`}
             >
               <img
-                src={import.meta.env.BASE_URL + data.image}
+                src={import.meta.env.VITE_BASE_URL + data.image}
                 alt={data.title}
                 className="h-[300px] w-full rounded-lg object-cover object-top transition-all duration-[7s] ease-linear hover:object-bottom"
               />
