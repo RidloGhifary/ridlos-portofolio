@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 import App from "./App.tsx";
 import "./index.css";
 
@@ -30,6 +31,8 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
           border: "3px solid var(--cursor-color)",
         }}
       />
+
+      <SpeedInsights />
     </BrowserRouter>
   </React.StrictMode>,
 );
