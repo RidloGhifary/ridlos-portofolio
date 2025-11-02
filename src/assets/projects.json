@@ -31,7 +31,7 @@
     "title": "Playlist Converter",
     "desc": "This project is a web application that allows you to convert a playlist from YouTube to Spotify. The application uses the Spotify API and the YouTube API to fetch playlists and tracks from both platforms.",
     "image": "/images/playlist-converter.png",
-    "linkDemo": "https://youtube-playlist-converter.vercel.app/",
+    "linkDemo": "https://spotube.convert.ridloghfry.web.id/",
     "linkCode": "https://github.com/RidloGhifary/youtube-playlist-converter"
   }
 ]
